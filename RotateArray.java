@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class RotateArray {
     public static void main(String[] args) {
-        int[] nums={1,2,3,4,5,6,7};
+       // int[] nums={1,2,3,4,5,6,7};
+        int[] nums={1,2};
         int k=3;
         //7-3=4
 //        for(int i=1;i<=k;i++){
@@ -18,14 +19,16 @@ public class RotateArray {
 //            System.out.println(Arrays.toString(nums));
 //
 //        }
+
         int clonenum[]=Arrays.copyOf(nums,nums.length);
         int index=0;
-        for(int i=0;i<k;i++){
-            nums[index++]=clonenum[nums.length-k+i];
-        }
-        for(int i=0;i<nums.length-k;i++){
-            nums[index++]=clonenum[i];
-        }
-        System.out.println(Arrays.toString(nums));
+            for (int i = 0; i < k && index< nums.length && nums.length - k + i >0; i++) {
+                nums[index++] = clonenum[nums.length - k + i];
+            }
+
+            for (int i = 0; index<nums.length; i++) {
+                nums[index++] = clonenum[i];
+            }
+            System.out.println(Arrays.toString(nums));
     }
 }
